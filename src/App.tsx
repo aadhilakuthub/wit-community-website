@@ -1,4 +1,4 @@
-import { useMemo, useState, type FormEvent } from 'react'
+import { useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import { Link, NavLink, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
@@ -99,7 +99,7 @@ function Footer() {
   </footer>
 }
 
-function PageIntro({eyebrow, title, description, number}: {eyebrow:string;title:string;description:string;number?:string}) {
+function PageIntro({eyebrow, title, description, number}: {eyebrow:string;title:ReactNode;description:string;number?:string}) {
   return <section className="page-intro section-shell">
     <div className="eyebrow"><span className="eyebrow-dot"/>{eyebrow}</div>
     <h1>{title}</h1>
@@ -108,7 +108,7 @@ function PageIntro({eyebrow, title, description, number}: {eyebrow:string;title:
   </section>
 }
 
-function SectionHeading({eyebrow, title, description, link, linkText}: {eyebrow:string;title:string;description?:string;link?:string;linkText?:string}) {
+function SectionHeading({eyebrow, title, description, link, linkText}: {eyebrow:string;title:ReactNode;description?:string;link?:string;linkText?:string}) {
   return <div className="section-heading">
     <div><div className="eyebrow"><span className="eyebrow-dot"/>{eyebrow}</div><h2>{title}</h2>{description && <p>{description}</p>}</div>
     {link && <Link className="text-link" to={link}>{linkText || 'Explore more'} <ArrowUpRight size={17}/></Link>}
